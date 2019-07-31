@@ -1,5 +1,5 @@
 const { randomlySelectWord } = require('./lib');
-const playHangman = require('./hangman');
+const { playHangman } = require('./hangman');
 
 const wordBank = [
   'javascript',
@@ -11,3 +11,6 @@ const wordBank = [
 ];
 
 playHangman(randomlySelectWord(wordBank));
+
+// to install on devDependency object
+// npm install --save-dev jest
