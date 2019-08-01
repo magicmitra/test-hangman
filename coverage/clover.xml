@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1564698675001" clover="3.2.0">
+  <project timestamp="1564698675001" name="All files">
+    <metrics statements="15" coveredstatements="11" conditionals="10" coveredconditionals="7" methods="11" coveredmethods="7" elements="36" coveredelements="25" complexity="0" loc="15" ncloc="15" packages="1" files="1" classes="1"/>
+    <file name="lib.js" path="C:\Users\EMitra\Documents\javascript\hangman-jest\lib.js">
+      <metrics statements="15" coveredstatements="11" conditionals="10" coveredconditionals="7" methods="11" coveredmethods="7"/>
+      <line num="1" count="1" type="stmt"/>
+      <line num="9" count="5" type="stmt"/>
+      <line num="18" count="0" type="stmt"/>
+      <line num="27" count="6" type="cond" truecount="2" falsecount="0"/>
+      <line num="28" count="3" type="stmt"/>
+      <line num="39" count="0" type="stmt"/>
+      <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="50" count="5" type="stmt"/>
+      <line num="60" count="0" type="stmt"/>
+      <line num="68" count="1" type="stmt"/>
+      <line num="76" count="2" type="stmt"/>
+      <line num="80" count="5" type="cond" truecount="2" falsecount="0"/>
+      <line num="81" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="82" count="2" type="stmt"/>
+      <line num="85" count="1" type="stmt"/>
+    </file>
+  </project>
+</coverage>

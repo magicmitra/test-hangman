@@ -76,6 +76,12 @@ function print(output) {
   console.log(output);
 }
 
+function validateInput(input) {
+  if(typeof input !== 'string') throw Error('Invalid input');
+  if(input[0].search(/[A-Z]/i) === -1) throw Error('Invalid input');
+  return input[0];
+};
+
 module.exports = {
   isWordSolved,
   randomlySelectWord,
@@ -85,4 +91,5 @@ module.exports = {
   stringify,
   askForALetter,
   wordIncludesLetter,
+  validateInput,
 };

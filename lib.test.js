@@ -4,7 +4,8 @@ const { stringify,
         isWordSolved, 
         print, 
         randomlySelectWord,
-        askForALetter } = require('./lib');
+        askForALetter,
+        validateInput } = require('./lib');
 
 describe('stringify', () => {
     test('stringify should convert and arbitrary string array into a string', () => {
@@ -83,14 +84,14 @@ describe('isWordSolved', () => {
     });
 
     it('should throw a TypeError if passed undefined input', () => {
-        expect.assertions(1);
-        try {
-            isWordSolved();
-        } catch(err) {
-            expect(err).toBeInstanceOf(TypeError);
-        }
+        // expect.assertions(1);
+        // try {
+        //     isWordSolved();
+        // } catch(err) {
+        //     expect(err).toBeInstanceOf(TypeError);
+        // }
         // wrap in a callback and use .toThrow();
-        // expect(() => isWordSolved()).toThrow(TypeError);
+        expect(() => isWordSolved()).toThrow(TypeError);
     });
 });
 
@@ -110,12 +111,12 @@ describe('print', () => {
     });
 });
 
-describe('randomlySelectWord', () => {
+xdescribe('randomlySelectWord', () => {
     // Math.random = jest.fn(() => 0.5);
     // Math.random = jest.fn().mockReturnValue(0.5);
-    Math.random = jest.fn();
 
     it('should return the any word in the array', () => {
+        Math.random = jest.fn();
         Math.random
             .mockReturnValueOnce(0)
             .mockReturnValueOnce(0.5)
@@ -135,5 +136,41 @@ describe('askForALetter', () => {
         readlineSync.question.mockReturnValueOnce('a');
         const result = askForALetter();
         expect(result).toBe('a');
+    });
+});
+
+describe('validateInput', () => {
+    it('should only return a single letter', () => {
+        const result = validateInput('a');
+        expect(result).toBe('a');
+    });
+
+    it('should return the 1st character if it receives a string', () => {
+        const result = validateInput('string');
+        expect(result).toBe('s');
+    });
+
+    it('should throw an error with "Invalid input" if it receives a number', () => {
+        expect.assertions(2);
+        try {
+            validateInput(2);
+        } catch(err) {
+            expect(err).toBeInstanceOf(Error);
+            expect(err.message).toBe('Invalid input');
+        }
+    });
+
+    it('should throw an error if it receives an input of undefined', () => {
+        expect(() => { validateInput() }).toThrow('Invalid input');
+    });
+
+    it('should throw an error with message of "Invalid input" if it receives a character that isnt a letter', () => {
+        expect(() => {
+            validateInput('2');
+        }).toThrow('Invalid input');
+    });
+
+    it('should throw an error if it receives multiple characters', () => {
+
     });
 });
